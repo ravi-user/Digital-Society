@@ -1,0 +1,67 @@
+
+<script>
+
+$(".btnapprove").on("click", function(){
+    console.log('----')
+    let id = $(this).attr('data-sid')
+    console.log(id)
+    data = {
+        id : id
+    }
+    $.ajax(
+        {
+            url : "{% url 'app' %}",
+            method: "POST",
+            data:data,
+            success: function(response)
+            {
+                x = response.context.status
+                if (x == "approved")
+                {
+                    $("#status").html("<span class='badge badge-success'>Approve</span>")  
+                }
+                else if(x == "rejected")
+                {
+                    $("#status").html("<span class='badge badge-danger'>Rejected</span>")  
+                }
+                else 
+                {
+                    $("#status").html("<span class='badge badge-warning'>Pending</span>")  
+                }
+            }
+        }
+    )
+})
+
+$(".btnreject").on("click", function(){
+    let id = $(this).attr('data-sid')
+    data = {
+        id :id,
+    }
+    $.ajax(
+        {
+            url : "{% url 'rejct' %}",
+            method: "POST",
+            data: data,
+            success: function(response)
+            {
+                x = response.context.status
+                if (x == "approved")
+                {
+                    $("#status").html("<span class='badge badge-success'>Approve</span>")  
+                }
+                else if(x == "rejected")
+                {
+                    $("#status").html("<span class='badge badge-danger'>Rejected</span>")  
+                }
+                else 
+                {
+                    $("#status").html("<span class='badge badge-warning'>Pending</span>")  
+                }
+            }
+            
+        }
+    )
+})
+
+</script>

@@ -1,0 +1,181 @@
+﻿{% extends 'chairman/index.html' %}
+{% block content %}
+<section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2>Add Maintenance <small class="text-muted">Welcome to Digital Society</small></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                        
+                            <button class="btn btn-white btn-icon btn-round d-none d-md-inline-block float-right m-l-10" type="button">
+                                <i class="zmdi zmdi-plus"></i>
+                            </button>
+                        
+                        
+                        <ul class="breadcrumb float-md-right">
+                            <li class="breadcrumb-item"><a href="{% url 'c-dashboard' %}"><i class="zmdi zmdi-home"></i>Digital Society</a></li>
+                            <li class="breadcrumb-item">Maintenance</li>
+                            <li class="breadcrumb-item active">Add Maintenance</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">                
+                
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 col-sm-12">
+            <div class="card">
+                <div class="header">
+                    <h2><strong>Maintenance</strong> Information </h2>
+                     <!-- <ul class="header-dropdown">
+                        <li class="remove">
+                            <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                        </li>
+                    </ul> -->
+                </div>
+            
+<form action="{% url 'add-maintenance' %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="body">
+        <div class="row clearfix">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Date</label>
+                    <input type="date" class="form-control" name="date" placeholder="Date">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label>Due Date</label>
+                    <input type="date" class="form-control" name="duedate" placeholder="Duedate">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <input type="number" class="form-control" name="amount" placeholder="Maintenance Amount">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <input type="number" class="form-control" name="penalty" placeholder="Penalty">
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <button type="submit" class="btn btn-primary btn-round">Submit</button>
+                <button type="submit" class="btn btn-default btn-round btn-simple">Cancel</button>
+            </div>
+        </div>
+    </div>
+</form>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="row clearfix">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h2><strong>Member's</strong> Account Information <small>Description text here...</small> </h2>
+                    <ul class="header-dropdown">
+                        <li class="remove">
+                            <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="body">
+                    <div class="row clearfix">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="User Name">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Password">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Confirm Password">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <button type="submit" class="btn btn-primary btn-round">Submit</button>
+                            <button type="submit" class="btn btn-default btn-round btn-simple">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row clearfix">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h2><strong>Member</strong> Social Media Info <small>Description text here...</small> </h2>
+                    <ul class="header-dropdown">
+                        <li class="remove">
+                            <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="body">
+                    <div class="row clearfix">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="zmdi zmdi-facebook"></i></span>
+                                <input type="text" class="form-control" placeholder="Facebook">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="zmdi zmdi-twitter"></i></span>
+                                <input type="text" class="form-control" placeholder="Twitter">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="zmdi zmdi-google-plus"></i></span>
+                                <input type="text" class="form-control" placeholder="Google Plus">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="zmdi zmdi-linkedin"></i></span>
+                                <input type="text" class="form-control" placeholder="LinkedIN">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="zmdi zmdi-behance"></i></span>
+                                <input type="text" class="form-control" placeholder="Behance">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="zmdi zmdi-dribbble"></i></span>
+                                <input type="text" class="form-control" placeholder="dribbble">
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <p> <b>With Search Bar</b> </p>
+                            <select class="form-control z-index show-tick" data-live-search="true">
+                                <option>Hot Dog, Fries and a Soda</option>
+                                <option>Burger, Shake and a Smile</option>
+                                <option>Sugar, Spice and all things nice</option>
+                            </select>
+                            <button type="submit" class="btn btn-primary btn-round">Submit</button>
+                            <button type="submit" class="btn btn-default btn-round btn-simple">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+            </div>
+        </section>
+
+{% endblock %}

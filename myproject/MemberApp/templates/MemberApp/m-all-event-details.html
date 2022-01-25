@@ -1,0 +1,85 @@
+﻿{% extends 'MemberApp/m_index.html' %}
+{% block content %}
+<section class="content home">
+
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12">
+                        <h2>View Event <small class="text-muted">Welcome to Digital Society</small></h2>
+                    </div>            
+                    <div class="col-lg-7 col-md-7 col-sm-12 text-right">
+                        
+                        <ul class="breadcrumb float-md-right">
+                            <li class="breadcrumb-item"><a href="..\dashboard\index.html"><i class="zmdi zmdi-home"></i> Digital Society</a></li>
+                                                            <li class="breadcrumb-item">Event</li>
+                                                            <li class="breadcrumb-item active">View Event</li>
+                                                    </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">                
+                <div class="blog-page">
+    <div class="row clearfix">
+        <div class="col-lg-12 col-md-12 left-box">
+           
+            <div class="card single_post">
+                <div class="body">
+                    <h3 class="m-t-0 m-b-5"><a href="detail.html">Title : {{context.eid.title}}</a></h3>
+                    <ul class="meta">
+                        <li><a href="#"><i class="zmdi zmdi-account col-blue"></i>Posted By: Chairman</a></li>
+                        <li><a href="#"><i class="zmdi zmdi-timer col-blue"></i>{{context.eid.whenpublished}}</a></li>
+                        <li><a href="#"><i class="zmdi zmdi-eye col-blue"></i>{{context.eid.eventViewCount}}</a></li>
+
+                    </ul>
+                    {% if context.eid.pic or context.eid.videofile %}
+                    <ul class="meta">
+                        <li><a href="#"><i class="zmdi zmdi-account col-blue"></i>Media Added </a></li>
+                        {% if context.eid.pic %}
+                            <li><a href="#"><i class="zmdi zmdi-collection-image col-blue"></i></a></li>
+                        {% endif %}
+                        {% if context.eid.videofile %}
+
+                            <li><a href="#"><i class="zmdi zmdi-collection-video col-blue"></i></a></li>
+                        {% endif %}
+                    </ul>
+                    {% endif %}
+                </div>                    
+                <div class="body">
+
+                    {% if context.eid.pic %}
+                    <div class="img-post m-b-15">  
+                        <img class="d-block img-fluid" src="{{ context.eid.pic.url }}" alt="First slide">
+                    </div> 
+                    {% endif %}
+
+                    {% if context.eid.videofile %}
+                    <div class="img-post m-b-15">  
+                        <video width="320" height="240" controls>
+                            <source src="{{ context.eid.videofile.url }}" type="video/mp4">
+                        </video>
+                    </div> 
+                    {% endif %}
+
+                    </div>
+                    <p> {{context.eid.description}} </p>
+
+                    <a href="{% url 'm-all-event' %}" title="Delete" class="btn btn-round btn-info">Back</a>                        
+                    
+               </div> 
+            </div>
+            <!-- <ul class="pagination pagination-primary">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>                 -->
+        </div>
+        
+    </div>
+</div>
+            </div>
+        </section>
+
+
+{% endblock %}
